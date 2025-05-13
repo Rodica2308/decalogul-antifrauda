@@ -16,17 +16,25 @@ interface Question {
 
 interface QuizComponentProps {
   questions: Question[];
+  allowPrevious?: boolean;
 }
 
-export default function QuizComponent({ questions }: QuizComponentProps) {
+export default function QuizComponent({ questions, allowPrevious = false }: QuizComponentProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<(number | null)[]>(Array(questions.length).fill(null));
 
   const checkAnswer = () => {
     setAnswered(true);
+    
+    // Save the user's answer
+    const newUserAnswers = [...userAnswers];
+    newUserAnswers[currentQuestionIndex] = selectedOption;
+    setUserAnswers(newUserAnswers);
+    
     if (selectedOption === questions[currentQuestionIndex].correctAnswer) {
       setScore(score + 1);
     }
@@ -34,11 +42,21 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
 
   const nextQuestion = () => {
     setAnswered(false);
-    setSelectedOption(null);
+    
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      // Set the selected option to the previously selected one (if any)
+      setSelectedOption(userAnswers[currentQuestionIndex + 1]);
     } else {
       setQuizCompleted(true);
+    }
+  };
+  
+  const previousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setAnswered(userAnswers[currentQuestionIndex - 1] !== null);
+      setSelectedOption(userAnswers[currentQuestionIndex - 1]);
     }
   };
 
@@ -48,13 +66,14 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
     setAnswered(false);
     setSelectedOption(null);
     setQuizCompleted(false);
+    setUserAnswers(Array(questions.length).fill(null));
   };
 
   return (
     <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden max-w-3xl mx-auto">
       <div className="bg-primary px-6 py-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-white">CEFCA Secure: Testează-ți cunoștințele</h2>
+          <h2 className="text-xl font-semibold text-white">Decalogul Antifrauda</h2>
           {!quizCompleted && (
             <span className="text-primary-50 text-sm md:text-base">
               Întrebarea {currentQuestionIndex + 1} din {questions.length}
@@ -107,15 +126,41 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
             )}
             
             <div className="mt-8 flex justify-between">
-              <button 
-                onClick={checkAnswer} 
-                disabled={selectedOption === null || answered}
-                className={`px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
-                  (selectedOption === null || answered) ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
-                Verifică răspunsul
-              </button>
+              {allowPrevious && currentQuestionIndex > 0 && (
+                <button 
+                  onClick={previousQuestion}
+                  className="px-4 py-2 bg-gray-500 text-white font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  Întrebarea anterioară
+                </button>
+              )}
+              
+              {!allowPrevious && (
+                <button 
+                  onClick={checkAnswer} 
+                  disabled={selectedOption === null || answered}
+                  className={`px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
+                    (selectedOption === null || answered) ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                >
+                  Verifică răspunsul
+                </button>
+              )}
+              
+              {allowPrevious && !answered && (
+                <button 
+                  onClick={checkAnswer} 
+                  disabled={selectedOption === null}
+                  className={`px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
+                    selectedOption === null ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                >
+                  Verifică răspunsul
+                </button>
+              )}
               
               {answered && (
                 <button 

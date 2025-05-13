@@ -10,7 +10,7 @@ function App() {
         <header className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center h-16 items-center">
-              <h1 className="text-xl font-bold text-primary-700">CEFCA Secure</h1>
+              <h1 className="text-xl font-bold text-primary-700">Decalogul Antifrauda</h1>
             </div>
           </div>
         </header>
