@@ -72,10 +72,10 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
   return (
     <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden max-w-3xl mx-auto">
       <div className="bg-primary px-6 py-4">
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-white">Decalogul Antifrauda</h2>
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center">
+          <h2 className="text-xl font-semibold text-white mb-2 md:mb-0">Decalogul Antifrauda - 10 întrebări și 10 răspunsuri pentru siguranța datelor și banilor tăi</h2>
           {!quizCompleted && (
-            <span className="text-primary-50 text-sm md:text-base">
+            <span className="text-primary-50 text-sm md:text-base whitespace-nowrap">
               Întrebarea {currentQuestionIndex + 1} din {questions.length}
             </span>
           )}
