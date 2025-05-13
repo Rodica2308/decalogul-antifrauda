@@ -224,35 +224,55 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
               )}
               
               {score >= (questions.length * 0.7) && score < questions.length && (
-                <p className="text-gray-700">
-                  Foarte bun rezultat! Ai cunoștințe solide despre securitatea bancară și poți identifica
-                  majoritatea tentativelor de fraudă. Continuă să fii vigilent și să-ți actualizezi informațiile
-                  despre metodele de fraudă.
-                </p>
+                <div className="text-gray-700">
+                  <p>
+                    Foarte bun rezultat! Ai cunoștințe solide despre securitatea bancară și poți identifica
+                    majoritatea tentativelor de fraudă. Continuă să fii vigilent și să-ți actualizezi informațiile
+                    despre metodele de fraudă.
+                  </p>
+                  <p className="mt-2 text-yellow-600 font-medium">
+                    Ai fost păcălit totuși {questions.length - score === 1 ? 'o dată' : `de ${questions.length - score} ori`}! Fii atent la detalii!
+                  </p>
+                </div>
               )}
               
               {score >= (questions.length / 2) && score < (questions.length * 0.7) && (
-                <p className="text-gray-700">
-                  Ai cunoștințe bune, dar există loc de îmbunătățire. Te sfătuim să acorzi o atenție deosebită
-                  aspectelor legate de verificarea surselor comunicărilor și să nu oferi niciodată date confidențiale
-                  prin canale nesigure.
-                </p>
+                <div className="text-gray-700">
+                  <p>
+                    Ai cunoștințe bune, dar există loc de îmbunătățire. Te sfătuim să acorzi o atenție deosebită
+                    aspectelor legate de verificarea surselor comunicărilor și să nu oferi niciodată date confidențiale
+                    prin canale nesigure.
+                  </p>
+                  <p className="mt-2 text-orange-600 font-medium">
+                    Ai fost păcălit de {questions.length - score} ori! Fraudatorii ar putea profita de aceste vulnerabilități!
+                  </p>
+                </div>
               )}
               
               {score < (questions.length / 2) && score > (questions.length * 0.3) && (
-                <p className="text-gray-700">
-                  Ai cunoștințe de bază, dar este important să îți îmbunătățești vigilența. Învață să recunoști
-                  semnele de avertizare ale fraudelor și nu acționa niciodată sub presiune sau din sentiment de urgență 
-                  când e vorba de datele și banii tăi.
-                </p>
+                <div className="text-gray-700">
+                  <p>
+                    Ai cunoștințe de bază, dar este important să îți îmbunătățești vigilența. Învață să recunoști
+                    semnele de avertizare ale fraudelor și nu acționa niciodată sub presiune sau din sentiment de urgență 
+                    când e vorba de datele și banii tăi.
+                  </p>
+                  <p className="mt-2 text-red-600 font-medium">
+                    Ai fost păcălit de {questions.length - score} ori! Ești expus la riscuri semnificative de fraudă!
+                  </p>
+                </div>
               )}
               
               {score <= (questions.length * 0.3) && (
-                <p className="text-gray-700">
-                  Este necesar să acorzi mai multă atenție siguranței bancare online. Fraudele sunt tot mai sofisticate 
-                  și este esențial să înveți cum să te protejezi. Reține că banca nu îți va cere niciodată detalii 
-                  confidențiale precum parole sau PIN-uri.
-                </p>
+                <div className="text-gray-700">
+                  <p>
+                    Este necesar să acorzi mai multă atenție siguranței bancare online. Fraudele sunt tot mai sofisticate 
+                    și este esențial să înveți cum să te protejezi. Reține că banca nu îți va cere niciodată detalii 
+                    confidențiale precum parole sau PIN-uri.
+                  </p>
+                  <p className="mt-2 text-red-700 font-bold">
+                    Ai fost păcălit de {questions.length - score} ori! Ești foarte vulnerabil la fraude! Studiază cu atenție informațiile prezentate!
+                  </p>
+                </div>
               )}
             </div>
             
