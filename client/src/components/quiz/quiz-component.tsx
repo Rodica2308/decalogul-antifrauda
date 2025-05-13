@@ -139,7 +139,15 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
                 </div>
               )}
               
-              {score >= (questions.length / 2) && score < questions.length && (
+              {score >= (questions.length * 0.7) && score < questions.length && (
+                <div>
+                  <ThumbsUp className="h-16 w-16 text-primary mx-auto" />
+                  <h3 className="mt-4 text-2xl font-bold text-gray-900">Foarte bine!</h3>
+                  <p className="mt-2 text-lg text-gray-600">Ai cunoștințe solide despre siguranța bancară.</p>
+                </div>
+              )}
+              
+              {score >= (questions.length / 2) && score < (questions.length * 0.7) && (
                 <div>
                   <ThumbsUp className="h-16 w-16 text-primary mx-auto" />
                   <h3 className="mt-4 text-2xl font-bold text-gray-900">Bine făcut!</h3>
@@ -156,8 +164,51 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
               )}
             </div>
             
-            <div className="mb-8">
+            <div className="mb-6">
               <p className="text-xl font-bold text-gray-900">Scorul tău: {score}/{questions.length}</p>
+              <p className="mt-1 text-gray-600">Procentaj: {Math.round((score / questions.length) * 100)}%</p>
+            </div>
+            
+            <div className="mb-8 max-w-lg mx-auto bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <h4 className="font-semibold text-gray-900 mb-2">Interpretarea scorului tău:</h4>
+              {score === questions.length && (
+                <p className="text-gray-700">
+                  Excelent! Ai toate cunoștințele necesare pentru a te proteja împotriva fraudelor bancare. 
+                  Ești vigilent și știi exact cum să identifici și să eviți tentativele de înșelăciune.
+                </p>
+              )}
+              
+              {score >= (questions.length * 0.7) && score < questions.length && (
+                <p className="text-gray-700">
+                  Foarte bun rezultat! Ai cunoștințe solide despre securitatea bancară și poți identifica
+                  majoritatea tentativelor de fraudă. Continuă să fii vigilent și să-ți actualizezi informațiile
+                  despre metodele de fraudă.
+                </p>
+              )}
+              
+              {score >= (questions.length / 2) && score < (questions.length * 0.7) && (
+                <p className="text-gray-700">
+                  Ai cunoștințe bune, dar există loc de îmbunătățire. Te sfătuim să acorzi o atenție deosebită
+                  aspectelor legate de verificarea surselor comunicărilor și să nu oferi niciodată date confidențiale
+                  prin canale nesigure.
+                </p>
+              )}
+              
+              {score < (questions.length / 2) && score > (questions.length * 0.3) && (
+                <p className="text-gray-700">
+                  Ai cunoștințe de bază, dar este important să îți îmbunătățești vigilența. Învață să recunoști
+                  semnele de avertizare ale fraudelor și nu acționa niciodată sub presiune sau din sentiment de urgență 
+                  când e vorba de datele și banii tăi.
+                </p>
+              )}
+              
+              {score <= (questions.length * 0.3) && (
+                <p className="text-gray-700">
+                  Este necesar să acorzi mai multă atenție siguranței bancare online. Fraudele sunt tot mai sofisticate 
+                  și este esențial să înveți cum să te protejezi. Reține că banca nu îți va cere niciodată detalii 
+                  confidențiale precum parole sau PIN-uri.
+                </p>
+              )}
             </div>
             
             <button 
