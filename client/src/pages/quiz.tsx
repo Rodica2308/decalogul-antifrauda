@@ -115,10 +115,10 @@ export default function Quiz() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <div className="px-4 sm:px-0">
-        <p className="text-xs text-gray-600 mb-6 text-left">Designed by prof. Simina Marius</p>
-        <p className="text-gray-600 text-center mb-6">Testează-ți cunoștințele despre protecția împotriva fraudelor bancare.</p>
+    <div className="max-w-7xl mx-auto py-3 sm:py-6 sm:px-6 lg:px-8">
+      <div className="px-3 sm:px-0">
+        <p className="text-2xs text-gray-600 mb-3 sm:mb-4 text-left">Designed by prof. Simina Marius</p>
+        <p className="text-xs sm:text-sm text-gray-600 text-center mb-4 sm:mb-6">Testează-ți cunoștințele despre protecția împotriva fraudelor bancare.</p>
         
         <QuizComponent questions={quizQuestions} allowPrevious={true} />
       </div>

@@ -9,8 +9,8 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <header className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center h-16 items-center">
-              <h1 className="text-xl font-bold text-primary-700">Decalogul Antifraudă</h1>
+            <div className="flex justify-center h-12 sm:h-16 items-center">
+              <h1 className="text-lg sm:text-xl font-bold text-primary-700">Decalogul Antifraudă</h1>
             </div>
           </div>
         </header>
