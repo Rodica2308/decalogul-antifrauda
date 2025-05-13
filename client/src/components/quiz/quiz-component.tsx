@@ -125,11 +125,11 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
               </div>
             )}
             
-            <div className="mt-8 flex justify-between">
+            <div className="mt-8 flex flex-wrap gap-4 justify-between">
               {allowPrevious && currentQuestionIndex > 0 && (
                 <button 
                   onClick={previousQuestion}
-                  className="px-4 py-2 bg-gray-500 text-white font-medium rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center gap-2"
+                  className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center gap-2"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
