@@ -82,10 +82,10 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
         </div>
       </div>
       
-      <div className="p-4 sm:p-6">
+      <div className="p-3 sm:p-4 md:p-6">
         {!quizCompleted ? (
           <div>
-            <h3 className="text-xs xs:text-sm sm:text-base font-medium text-gray-900">{questions[currentQuestionIndex].question}</h3>
+            <h3 className="text-xs sm:text-sm md:text-base font-medium text-gray-900">{questions[currentQuestionIndex].question}</h3>
             
             <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
               {questions[currentQuestionIndex].options.map((option, index) => (

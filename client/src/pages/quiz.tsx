@@ -117,7 +117,7 @@ export default function Quiz() {
   return (
     <div className="max-w-7xl mx-auto py-3 sm:py-6 sm:px-6 lg:px-8">
       <div className="px-3 sm:px-0">
-        <p className="text-2xs text-gray-600 mb-3 sm:mb-4 text-left">Designed by prof. Simina Marius</p>
+        <p className="text-[0.65rem] text-gray-600 mb-2 sm:mb-3 text-left">Designed by prof. Simina Marius</p>
         <p className="text-xs sm:text-sm text-gray-600 text-center mb-4 sm:mb-6">Testează-ți cunoștințele despre protecția împotriva fraudelor bancare.</p>
         
         <QuizComponent questions={quizQuestions} allowPrevious={true} />
