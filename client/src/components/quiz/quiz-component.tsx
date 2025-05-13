@@ -70,28 +70,28 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
   };
 
   return (
-    <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden max-w-3xl mx-auto">
-      <div className="bg-primary px-6 py-4">
+    <div className="mt-4 sm:mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden max-w-3xl mx-auto">
+      <div className="bg-primary px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center">
-          <h2 className="text-xl font-semibold text-white mb-2 md:mb-0">Decalogul Antifrauda - 10 întrebări și 10 răspunsuri pentru siguranța datelor și banilor tăi</h2>
+          <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 md:mb-0">Decalogul Antifraudă - 10 întrebări și 10 răspunsuri pentru siguranța datelor și banilor tăi</h2>
           {!quizCompleted && (
-            <span className="text-primary-50 text-sm md:text-base whitespace-nowrap">
+            <span className="text-primary-50 text-xs sm:text-sm md:text-base whitespace-nowrap">
               Întrebarea {currentQuestionIndex + 1} din {questions.length}
             </span>
           )}
         </div>
       </div>
       
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {!quizCompleted ? (
           <div>
-            <h3 className="text-lg font-medium text-gray-900">{questions[currentQuestionIndex].question}</h3>
+            <h3 className="text-base sm:text-lg font-medium text-gray-900">{questions[currentQuestionIndex].question}</h3>
             
-            <div className="mt-6 space-y-3">
+            <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
               {questions[currentQuestionIndex].options.map((option, index) => (
                 <div key={index}>
                   <label 
-                    className={`flex p-4 border rounded-lg cursor-pointer transition-colors ${
+                    className={`flex p-3 sm:p-4 border rounded-lg cursor-pointer transition-colors ${
                       selectedOption !== index && !answered ? "border-gray-300 bg-white" :
                       selectedOption === index && !answered ? "border-primary-500 bg-primary-50" :
                       answered && index === questions[currentQuestionIndex].correctAnswer ? "border-emerald-500 bg-emerald-50" :
@@ -107,7 +107,7 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
                       disabled={answered}
                       className="h-5 w-5 mt-0.5 cursor-pointer"
                     />
-                    <span className="ml-3 text-gray-700">{option}</span>
+                    <span className="ml-3 text-sm sm:text-base text-gray-700">{option}</span>
                   </label>
                 </div>
               ))}
@@ -115,21 +115,21 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
             
             {/* Explanation after answering */}
             {answered && (
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <div className="flex">
                   <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div className="ml-3">
-                    <p className="text-primary-800">{questions[currentQuestionIndex].explanation}</p>
+                    <p className="text-sm sm:text-base text-primary-800">{questions[currentQuestionIndex].explanation}</p>
                   </div>
                 </div>
               </div>
             )}
             
-            <div className="mt-8 flex flex-wrap gap-4 justify-between">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 justify-between">
               {allowPrevious && currentQuestionIndex > 0 && (
                 <button 
                   onClick={previousQuestion}
-                  className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center gap-2"
+                  className="px-3 sm:px-4 py-2 bg-blue-500 text-white text-sm sm:text-base font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 flex items-center gap-2"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -142,7 +142,7 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
                 <button 
                   onClick={checkAnswer} 
                   disabled={selectedOption === null || answered}
-                  className={`px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
+                  className={`px-3 sm:px-4 py-2 bg-primary text-white text-sm sm:text-base font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
                     (selectedOption === null || answered) ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
@@ -154,7 +154,7 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
                 <button 
                   onClick={checkAnswer} 
                   disabled={selectedOption === null}
-                  className={`px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
+                  className={`px-3 sm:px-4 py-2 bg-primary text-white text-sm sm:text-base font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
                     selectedOption === null ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
@@ -165,7 +165,7 @@ export default function QuizComponent({ questions, allowPrevious = false }: Quiz
               {answered && (
                 <button 
                   onClick={nextQuestion}
-                  className="px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center gap-2"
+                  className="px-3 sm:px-4 py-2 bg-primary text-white text-sm sm:text-base font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center gap-2"
                 >
                   {currentQuestionIndex < questions.length - 1 ? "Următoarea întrebare" : "Vezi rezultatele"}
                   <ArrowRight className="h-4 w-4" />
