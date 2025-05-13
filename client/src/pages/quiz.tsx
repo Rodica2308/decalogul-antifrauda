@@ -56,14 +56,91 @@ export default function Quiz() {
       ],
       correctAnswer: 1,
       explanation: 'Contactează imediat banca la numărul oficial. Timpul este esențial pentru a limita daunele și a bloca accesul neautorizat la conturile tale.'
+    },
+    {
+      question: 'Ce tehnică folosesc atacatorii pentru a face ca apelurile lor telefonice să pară că provin de la banca ta?',
+      options: [
+        'Phishing',
+        'Spoofing',
+        'Malware',
+        'Social engineering'
+      ],
+      correctAnswer: 1,
+      explanation: 'Atacatorii folosesc o tehnică numită "spoofing", prin care falsifică numărul expeditorului pentru a părea că provine de la bancă. Astfel, victima crede că este sunată de către bancă.'
+    },
+    {
+      question: 'Ce detalii nu va cere niciodată banca ta prin telefon, SMS sau email?',
+      options: [
+        'Numele tău',
+        'Adresa de email',
+        'CNP și parole de internet banking',
+        'Sucursala unde ai deschis contul'
+      ],
+      correctAnswer: 2,
+      explanation: 'Banca nu îți va cere niciodată detalii precum CNP, cont bancar, parole sau date de logare în aplicațiile de banking, pentru că acestea se află deja în sistemul băncii.'
+    },
+    {
+      question: 'Ce riști dacă dai datele tale bancare personale unor persoane neautorizate?',
+      options: [
+        'Nimic, datele sunt protejate oricum',
+        'Doar spam pe email',
+        'Furt de identitate sau de bani din cont',
+        'Doar apeluri telefonice nedorite'
+      ],
+      correctAnswer: 2,
+      explanation: 'Dacă datele tale bancare ajung în mâinile nepotrivite, riști să fii victima furtului de identitate sau de bani din conturile tale.'
+    },
+    {
+      question: 'Cum recunoști un email de tip phishing de la o bancă?',
+      options: [
+        'Are mereu o adresă de email similară cu cea a băncii',
+        'Conține greșeli gramaticale în text și solicitări urgente de "actualizare a datelor"',
+        'Are un font diferit de cel al comunicărilor oficiale',
+        'Este întotdeauna trimis noaptea'
+      ],
+      correctAnswer: 1,
+      explanation: 'E-mailurile de tip phishing pot imita comunicările oficiale, dar conțin adesea greșeli gramaticale din text sau solicitări suspecte precum "actualizează datele pentru a nu-ți bloca accesul".'
+    },
+    {
+      question: 'Ce fel de aplicații pot periclita siguranța datelor și a conturilor bancare?',
+      options: [
+        'Aplicațiile oficiale ale băncilor',
+        'Aplicațiile antivirus',
+        'Aplicațiile descărcate din App Store sau Google Play',
+        'Aplicațiile din surse neoficiale, care pot conține malware'
+      ],
+      correctAnswer: 3,
+      explanation: 'Aplicațiile din surse neoficiale pot conține malware și îți pot periclita siguranța datelor și a conturilor bancare.'
+    },
+    {
+      question: 'Ce strategie folosesc hackerii pentru a te determina să acționezi fără să verifici legitimitatea cererii?',
+      options: [
+        'Îți oferă timp de gândire',
+        'Creează un sentiment de panică și urgență',
+        'Îți dau informații complete',
+        'Îți cer să consulți un specialist'
+      ],
+      correctAnswer: 1,
+      explanation: 'Hackerii se folosesc de crearea sentimentului de panică și de urgență pentru a te convinge să transferi o sumă de bani sau să oferi date sensibile, fără să ai timp să verifici legitimitatea cererii.'
+    },
+    {
+      question: 'Ce ar trebui să faci dacă primești o solicitare de plată nesolicitată?',
+      options: [
+        'Efectuez plata imediat pentru a evita penalități',
+        'Tratez cu suspiciune, deoarece solicitările de plată nesolicitate sunt adesea tentative de fraudă',
+        'Cer detalii suplimentare prin SMS',
+        'Transfer doar jumătate din suma cerută'
+      ],
+      correctAnswer: 1,
+      explanation: 'Solicitările de plată nesolicitate sunt adesea tentative de fraudă. Verifică întotdeauna legitimitatea cererii înainte de a efectua orice plată.'
     }
   ];
 
   return (
     <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <div className="px-4 sm:px-0">
-        <h1 className="text-2xl font-bold text-gray-900">Testează-ți cunoștințele</h1>
-        <p className="mt-2 text-gray-600">Verifică-ți abilitățile de a identifica și preveni fraude bancare cu acest scurt test.</p>
+        <h1 className="text-2xl font-bold text-gray-900 text-center mb-3">Testează-ți cunoștințele</h1>
+        <p className="text-gray-600 text-center mb-6">Verifică-ți abilitățile de a identifica și preveni fraude bancare cu acest test.</p>
         
         <QuizComponent questions={quizQuestions} />
       </div>

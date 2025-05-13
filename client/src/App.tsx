@@ -1,52 +1,31 @@
-import { Route, Switch } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
-import Home from "@/pages/home";
-import FraudTypes from "@/pages/fraud-types";
-import Protection from "@/pages/protection";
 import Quiz from "@/pages/quiz";
-import Resources from "@/pages/resources";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
-import { useState } from "react";
-import { SearchProvider } from "@/hooks/use-search";
-
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/tipuri-frauda" component={FraudTypes} />
-      <Route path="/protectie" component={Protection} />
-      <Route path="/quiz" component={Quiz} />
-      <Route path="/resurse" component={Resources} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
 
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
   return (
     <QueryClientProvider client={queryClient}>
-      <SearchProvider>
-        <TooltipProvider>
-          <div className="min-h-screen flex flex-col">
-            <Navbar 
-              isMobileMenuOpen={isMobileMenuOpen} 
-              setIsMobileMenuOpen={setIsMobileMenuOpen}
-            />
-            <main className="flex-grow">
-              <Router />
-            </main>
-            <Footer />
-            <Toaster />
+      <div className="min-h-screen flex flex-col">
+        <header className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center h-16 items-center">
+              <h1 className="text-xl font-bold text-primary-700">CEFCA Secure</h1>
+            </div>
           </div>
-        </TooltipProvider>
-      </SearchProvider>
+        </header>
+        <main className="flex-grow">
+          <Quiz />
+        </main>
+        <footer className="bg-gray-800">
+          <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} CEFCA Secure. Toate drepturile rezervate.
+            </p>
+          </div>
+        </footer>
+        <Toaster />
+      </div>
     </QueryClientProvider>
   );
 }

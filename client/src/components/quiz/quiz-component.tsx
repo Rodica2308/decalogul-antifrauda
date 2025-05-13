@@ -56,7 +56,7 @@ export default function QuizComponent({ questions }: QuizComponentProps) {
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold text-white">CEFCA Secure: Testează-ți cunoștințele</h2>
           {!quizCompleted && (
-            <span className="text-primary-50">
+            <span className="text-primary-50 text-sm md:text-base">
               Întrebarea {currentQuestionIndex + 1} din {questions.length}
             </span>
           )}
