@@ -1,38 +1,58 @@
 export interface SearchResult {
   title: string;
-  category: 'phishing' | 'banking' | 'identity' | 'remote';
+  category: 'phishing' | 'banking' | 'identity' | 'remote' | 'social' | 'digital';
   content: string;
 }
 
 export const fraudData: SearchResult[] = [
   {
-    title: 'Mesaje suspecte cu linkuri',
+    title: 'Fraude pe WhatsApp și rețele sociale',
+    category: 'social',
+    content: 'Fraudatorii clonează conturi de WhatsApp sau preiau controlul asupra lor pentru a cere bani de la contactele victimei. Verifică mereu identitatea persoanei pe un alt canal de comunicare.'
+  },
+  {
+    title: 'Quishing - Fraude prin coduri QR',
     category: 'phishing',
-    content: 'Dacă primești mesaje suspecte în care ți se cere să intri pe un link pentru a revendica un premiu, este vorba despre o tentativă de fraudă.'
+    content: 'Tehnica „quishing" presupune lipirea unui cod QR fals peste cel legitim pe terminale de plată sau afișe. Scanarea duce către site-uri frauduloase care fură datele de card.'
   },
   {
-    title: 'Cereri de date bancare',
-    category: 'banking',
-    content: 'Dacă trebuie să primești o sumă de bani, IBAN-ul este tot ce ai nevoie să dai mai departe. Dacă ți se cer și alte date ale conturilor sau aplicațiilor de banking, este vorba despre o tentativă de fraudă.'
+    title: 'Deepfake și apeluri video false',
+    category: 'digital',
+    content: 'Tehnologia deepfake bazată pe inteligență artificială poate genera video și audio extrem de realiste, permițând fraudatorilor să imite chipul și vocea oricui.'
   },
   {
-    title: 'Solicitări de date personale',
+    title: 'Magazine online frauduloase',
+    category: 'phishing',
+    content: 'Magazinele frauduloase oferă prețuri nerealiste și acceptă doar metode de plată ireversibile precum transfer bancar sau criptomonede. Recenziile pot fi fabricate.'
+  },
+  {
+    title: 'SIM Swapping',
     category: 'identity',
-    content: 'Banca nu îți va cere niciodată detalii precum CNP, cont bancar, parole sau date de logare în aplicațiile de banking, pentru că acestea se află deja în sistemul băncii.'
+    content: 'Atacul SIM Swapping presupune că fraudatorul convinge operatorul de telefonie să transfere numărul tău pe o altă cartelă SIM, primind astfel SMS-urile de confirmare bancară.'
   },
   {
-    title: 'Linkuri false',
-    category: 'phishing',
-    content: 'Linkurile pot fi false și pot duce către pagini de phishing sau pot conține viruși.'
+    title: 'Money Mule - Catâr financiar',
+    category: 'banking',
+    content: 'Schemele de tip „money mule" te transformă în complice la spălare de bani. Dacă primești și retransferi bani pentru „un angajator", riști pedeapsa cu închisoarea.'
   },
   {
-    title: 'Aplicații de control la distanță',
+    title: 'Riscuri Wi-Fi public',
     category: 'remote',
-    content: 'Aplicațiile de tipul AnyDesk sau Team View au rolul de a prelua controlul dispozitivelor tale, pentru a avea acces la aplicațiile tale de banking sau la alte date confidențiale.'
+    content: 'Pe rețele Wi-Fi publice, atacatorii pot intercepta datele tale prin atacuri „Man-in-the-Middle". Evită accesarea aplicațiilor bancare pe Wi-Fi public — folosește datele mobile sau un VPN.'
   },
   {
-    title: 'E-mailuri de tip phishing',
+    title: 'Fraude în numele instituțiilor (ANAF, Poliție)',
     category: 'phishing',
-    content: 'E-mailurile de tip phishing pot imita foarte bine comunicările oficiale ale băncilor.'
+    content: 'Fraudatorii se dau drept ANAF, Poliție sau alte instituții, trimițând emailuri cu amenințări de executare silită. Instituțiile oficiale nu cer plăți urgente prin email.'
+  },
+  {
+    title: 'Tranzacții test pe card',
+    category: 'banking',
+    content: 'Fraudatorii testează cardurile furate cu tranzacții foarte mici (1-5 lei). Dacă trec, urmează tranzacții mari. Raportează imediat orice tranzacție nerecunoscută!'
+  },
+  {
+    title: 'Parole sigure și autentificare 2FA',
+    category: 'digital',
+    content: 'O parolă sigură este lungă, conține litere mari și mici, cifre și caractere speciale. Cea mai bună protecție combină o parolă puternică cu autentificarea în doi pași (2FA).'
   }
 ];
