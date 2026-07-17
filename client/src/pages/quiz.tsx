@@ -3,114 +3,114 @@ import QuizComponent from "@/components/quiz/quiz-component";
 export default function Quiz() {
   const quizQuestions = [
     {
-      question: 'Primești un mesaj pe WhatsApp de la un „prieten" care îți cere urgent bani pentru o urgență medicală. Ce faci?',
+      category: 'Phishing prin mesaj (prieten fals)',
+      question: 'Un „prieten" îți scrie pe WhatsApp că are o urgență medicală și are nevoie de bani chiar acum. Ce faci?',
       options: [
-        'Transfer imediat banii, prietenul meu are nevoie de ajutor',
-        'Sun prietenul la numărul lui real de telefon pentru a verifica dacă el a trimis mesajul',
-        'Cer detalii suplimentare prin același chat WhatsApp',
-        'Trimit jumătate din suma cerută, ca măsură de precauție'
+        'Trimit banii imediat, e vorba de o urgență',
+        'Îl sun pe numărul lui obișnuit, ca să fiu sigur că el a scris, nu altcineva',
+        'Îi cer mai multe detalii tot pe WhatsApp',
+        'Trimit doar jumătate din sumă, ca să fiu precaut'
       ],
-      correctAnswer: 1,
-      explanation: 'Fraudatorii clonează conturi de WhatsApp sau preiau controlul asupra lor. Singura modalitate sigură de verificare este să contactezi persoana pe alt canal (telefon, față în față). Nu trimite niciodată bani fără confirmare directă.'
+      correctAnswer: 1
     },
     {
-      question: 'Scanezi un cod QR lipit pe un terminal de plată într-un restaurant. Ce risc există?',
+      category: 'Cod QR fraudulos (quishing)',
+      question: 'Vrei să plătești parcarea scanând un cod QR lipit pe un stâlp. Ce ar trebui să te pui pe gânduri?',
       options: [
-        'Codul QR poate fi un sticker fals lipit peste cel original, care te redirecționează către un site fraudulos',
-        'Codurile QR sunt întotdeauna sigure deoarece sunt generate automat',
-        'Riscul este doar dacă telefonul nu are antivirus',
-        'Nu există niciun risc, codurile QR nu pot conține viruși'
+        'Codul ar putea fi un abțibild fals, lipit peste cel oficial, care te duce pe un site ce îți fură datele cardului',
+        'Codurile QR sunt mereu sigure, sunt generate automat',
+        'E o problemă doar dacă telefonul n-are antivirus',
+        'Nu există niciun risc la coduri QR'
       ],
-      correctAnswer: 0,
-      explanation: 'Tehnica „quishing" (QR + phishing) presupune lipirea unui cod QR fals peste cel legitim. Când îl scanezi, ești redirecționat către un site care îți fură datele de card. Verifică mereu dacă codul QR nu este un autocolant lipit peste cel original.'
+      correctAnswer: 0
     },
     {
-      question: 'Primești un apel video în care „directorul băncii" îți cere să confirmi o tranzacție. Vocea și chipul par reale. Ce faci?',
+      category: 'Deepfake / apel video fals',
+      question: 'Primești un apel video în care cineva care arată și vorbește exact ca directorul băncii tale îți cere să confirmi o plată. Ce faci?',
       options: [
-        'Confirm tranzacția, deoarece am văzut chipul directorului',
-        'Închid și sun la numărul oficial al băncii, deoarece tehnologia deepfake poate genera imagini și voci false',
-        'Cer să îmi trimită un email de confirmare în timpul apelului',
-        'Verific dacă apelul vine de pe un număr cu prefixul băncii'
+        'Confirm, doar l-am văzut cu ochii mei',
+        'Închid și sun eu banca la numărul oficial, pentru că imaginea și vocea pot fi falsificate',
+        'Îi cer să-mi trimită un email de confirmare',
+        'Verific doar dacă numărul de telefon pare să fie al băncii'
       ],
-      correctAnswer: 1,
-      explanation: 'Tehnologia deepfake bazată pe inteligență artificială poate genera video și audio extrem de realiste. Fraudatorii pot imita perfect chipul și vocea oricui. Nu lua decizii financiare bazate pe apeluri video nesolicitate — sună mereu banca la numărul oficial.'
+      correctAnswer: 1
     },
     {
-      question: 'Găsești un magazin online cu prețuri incredibil de mici (iPhone la 200 lei). Ce indiciu sugerează că este o fraudă?',
+      category: 'Magazin online fals',
+      question: 'Găsești un magazin online care vinde un iPhone la doar 200 de lei. Ce te-ar face să bănuiești o țeapă?',
       options: [
-        'Site-ul are multe recenzii pozitive',
-        'Acceptă plata doar prin transfer bancar direct sau criptomonede, fără opțiuni de plată cu cardul sau ramburs',
-        'Site-ul are un design profesional',
+        'Are multe recenzii pozitive',
+        'Acceptă plata doar prin transfer bancar sau criptomonede, nu și cu cardul sau ramburs',
+        'Are un design de site foarte profesionist',
         'Oferă livrare gratuită'
       ],
-      correctAnswer: 1,
-      explanation: 'Magazinele frauduloase oferă prețuri nerealiste și acceptă doar metode de plată ireversibile (transfer bancar, cripto). Un site legitim oferă multiple opțiuni de plată (card, ramburs). Recenziile pot fi false, iar designul poate fi copiat de pe site-uri reale.'
+      correctAnswer: 1
     },
     {
-      question: 'Telefonul tău pierde brusc semnalul mobil și nu mai poți primi SMS-uri sau apeluri. Ce s-ar putea întâmpla?',
+      category: 'SIM Swapping',
+      question: 'Din senin, telefonul tău rămâne fără semnal și nu mai poți primi apeluri sau SMS-uri. Ce ar trebui să faci?',
       options: [
-        'Probabil e o problemă temporară de rețea, aștept câteva ore',
-        'Este posibil să fiu victima unui atac SIM Swapping — sun imediat operatorul de la alt telefon',
-        'Repornesc telefonul și aștept să revină semnalul',
-        'Mă conectez la Wi-Fi și folosesc aplicațiile de banking normal'
+        'Aștept câteva ore, probabil e o problemă de rețea',
+        'Sun imediat operatorul, de pe alt telefon — cineva ar fi putut să-mi preia numărul pe o altă cartelă SIM',
+        'Repornesc telefonul și aștept',
+        'Mă conectez la Wi-Fi și intru normal în aplicația băncii'
       ],
-      correctAnswer: 1,
-      explanation: 'Atacul SIM Swapping presupune că fraudatorul convinge operatorul de telefonie să transfere numărul tău pe o altă cartelă SIM. Astfel, primește el SMS-urile de confirmare bancară. Dacă pierzi brusc semnalul, contactează imediat operatorul și banca!'
+      correctAnswer: 1
     },
     {
-      question: 'Un „angajator" de pe internet îți oferă un job de acasă: să primești bani în contul tău și să îi transferi mai departe, păstrând un comision. Ce este de fapt?',
+      category: 'Money mule',
+      question: 'Cineva cunoscut online îți propune o „afacere": banii lui trec prin contul tău, iar tu păstrezi o parte drept comision. Ce faci?',
       options: [
-        'O oportunitate legitimă de lucru de acasă',
-        'O schemă de tip „money mule" — devii complice la spălare de bani, riscând închisoarea',
-        'Un mod sigur de a câștiga bani extra dacă sumele sunt mici',
-        'O practică obișnuită în comerțul internațional'
+        'Accept, pare un mod ușor de a face bani',
+        'Refuz — banii care trec fără motiv real prin contul meu ar putea fi din fraude, iar eu aș răspunde pentru asta',
+        'Accept, dar doar dacă suma e mică',
+        'Cer un contract semnat înainte'
       ],
-      correctAnswer: 1,
-      explanation: 'Aceasta este o schemă de tip „money mule" (catâr financiar). Banii proveniți din fraude sunt „spălați" prin contul tău. Ești considerat complice la spălare de bani și riști pedeapsa cu închisoarea, chiar dacă nu știai proveniența banilor.'
+      correctAnswer: 1
     },
     {
-      question: 'Te conectezi la Wi-Fi-ul gratuit dintr-o cafenea și vrei să verifici soldul bancar. Ce risc major există?',
+      category: 'Wi-Fi public / Man-in-the-Middle',
+      question: 'Ești într-o cafenea și vrei să-ți verifici contul bancar folosind Wi-Fi-ul gratuit al localului. E o idee bună?',
       options: [
-        'Bateria telefonului se consumă mai repede',
-        'Nu există niciun risc dacă site-ul băncii are lacătul verde (HTTPS)',
-        'Un atacator poate intercepta datele tale printr-un atac „Man-in-the-Middle", chiar și pe site-uri HTTPS',
-        'Wi-Fi-ul public este la fel de sigur ca cel de acasă'
+        'Da, atât timp cât site-ul băncii are lacătul verde în bara de adresă',
+        'Nu, pe o rețea publică altcineva ar putea „asculta" ce trimit și fura datele mele',
+        'Da, un Wi-Fi public e la fel de sigur ca cel de acasă',
+        'Nu contează, telefonul are oricum parolă'
       ],
-      correctAnswer: 2,
-      explanation: 'Pe rețele Wi-Fi publice, atacatorii pot crea puncte de acces false sau intercepta traficul prin atacuri „Man-in-the-Middle". Evită accesarea aplicațiilor bancare pe Wi-Fi public. Folosește datele mobile sau un VPN pentru tranzacții financiare.'
+      correctAnswer: 1
     },
     {
-      question: 'Primești un email de la „ANAF" care spune că ai o restanță fiscală și trebuie să plătești imediat pentru a evita executarea silită. Ce faci?',
+      category: 'Phishing ANAF',
+      question: 'Primești un email care pare de la ANAF, spunând că ai o datorie și trebuie să plătești urgent, altfel îți blochează contul. Ce faci?',
       options: [
-        'Plătesc imediat pentru a evita probleme legale',
-        'Accesez linkul din email pentru a verifica situația fiscală',
-        'Verific pe site-ul oficial anaf.ro sau sun la numărul oficial al ANAF pentru confirmare',
-        'Răspund la email cerând mai multe detalii despre restanță'
+        'Plătesc imediat, ca să evit problemele',
+        'Dau click pe link să văd despre ce e vorba',
+        'Verific direct pe site-ul oficial anaf.ro sau sun la ANAF, fără să folosesc linkul din email',
+        'Răspund la email cerând mai multe detalii'
       ],
-      correctAnswer: 2,
-      explanation: 'ANAF, băncile și alte instituții nu trimit niciodată solicitări de plată prin email cu amenințări de executare imediată. Verifică mereu pe site-ul oficial sau la telefonul instituției. Presiunea și urgența sunt semne clare de fraudă.'
+      correctAnswer: 2
     },
     {
-      question: 'Observi pe extras de cont o tranzacție mică (2-3 lei) pe care nu o recunoști. Ce semnifică acest lucru?',
+      category: 'Tranzacție test (card furat)',
+      question: 'Vezi pe extrasul de cont o plată de 2-3 lei pe care nu ți-o amintești. E o sumă prea mică ca să conteze?',
       options: [
-        'Probabil un cost bancar minor, nu e nimic grav',
-        'Poate fi un test al fraudatorilor care verifică dacă datele cardului funcționează, înainte de tranzacții mari',
-        'Este normal să apară mici diferențe pe extras',
-        'Banca a aplicat o taxă automată'
+        'Da, e neglijabilă',
+        'Nu neapărat — hoții testează adesea un card furat cu sume mici, înainte să facă plăți mari',
+        'E normal, băncile mai pun taxe mici din când în când',
+        'Nu, doar dacă suma trece de 50 de lei'
       ],
-      correctAnswer: 1,
-      explanation: 'Fraudatorii testează adesea cardurile furate cu tranzacții foarte mici (1-5 lei) pentru a verifica dacă funcționează. Dacă trec, urmează tranzacții mari. Raportează imediat orice tranzacție nerecunoscută, oricât de mică!'
+      correctAnswer: 1
     },
     {
-      question: 'Ce parolă este cea mai sigură pentru aplicația de internet banking?',
+      category: 'Parole și 2FA',
+      question: 'Care e cea mai bună metodă de a-ți proteja contul de internet banking?',
       options: [
-        'NumeleMeu2024',
-        'parola123',
-        'Data ta de naștere (ex: 15031990)',
-        'O frază unică precum „CaineleMeuAre3PeteNegre!" combinată cu autentificare în doi pași'
+        'O parolă cu numele tău și anul nașterii',
+        'Aceeași parolă pe care o folosești și pe alte site-uri',
+        'O parolă lungă, greu de ghicit, plus un cod de confirmare primit pe telefon la fiecare autentificare',
+        'O parolă scurtă, dar schimbată des'
       ],
-      correctAnswer: 3,
-      explanation: 'O parolă sigură este lungă, conține litere mari și mici, cifre și caractere speciale, și nu conține informații personale. Cea mai bună protecție combină o parolă puternică cu autentificarea în doi pași (2FA), care adaugă un nivel extra de securitate.'
+      correctAnswer: 2
     }
   ];
 
@@ -119,7 +119,7 @@ export default function Quiz() {
       <div className="px-3 sm:px-0">
         <p className="text-[0.65rem] text-gray-600 mb-2 sm:mb-3 text-left">by prof. Simina Marius</p>
         <p className="text-xs sm:text-sm text-gray-600 text-center mb-4 sm:mb-6">Testează-ți cunoștințele despre protecția împotriva fraudelor bancare.</p>
-        
+
         <QuizComponent questions={quizQuestions} allowPrevious={true} />
       </div>
     </div>
